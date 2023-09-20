@@ -1,17 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import useFetch from "../custom/fetch";
 import "./childComponent.scss";
 const ChildComponent = (props) => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  useEffect(async () => {
-    setTimeout(async () => {
-      let res = await axios.get(`https://shibe.online/api/shibes?count=100`);
-      let data = res && res.data ? res.data : [];
-      setLoading(false);
-      setData(data);
-    }, 2000);
-  }, []);
+  let { data, loading } = useFetch("https://shibe.online/api/shibes?count=100");
+
   return (
     <div className="listImage">
       {loading === false && data && data.length > 0 ? (
