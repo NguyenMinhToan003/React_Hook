@@ -7,7 +7,7 @@ const useFetch = (url) => {
     async function fetchData() {
       try {
         let res = await axios.get(url);
-        let dataFetch = res && res.data ? res.data : [];
+        let dataFetch = res && res.data && res.data.url ? res.data.url : [];
         setLoading(false);
         setData(dataFetch);
       } catch (err) {
@@ -15,7 +15,7 @@ const useFetch = (url) => {
       }
     }
     fetchData();
-    console.log(">>>> check data ", data);
+    console.log(">>>>> check data : ", data);
   }, [url]);
   return {
     data,

@@ -9,7 +9,6 @@ class Countdown extends React.Component {
       this.setState({
         number: this.state.number - 1,
       });
-      console.log(">>>>>> this is time out ", this.state.number);
     }, 1000);
   };
   componentDidUpdate = (prevProps, prevState) => {

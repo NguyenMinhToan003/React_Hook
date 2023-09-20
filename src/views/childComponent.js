@@ -3,7 +3,7 @@ import axios from "axios";
 import useFetch from "../custom/fetch";
 import "./childComponent.scss";
 const ChildComponent = (props) => {
-  let { data, loading } = useFetch("https://shibe.online/api/shibes?count=100");
+  let { data, loading } = useFetch("http://localhost:4000/api/v1/test");
 
   return (
     <div className="listImage">
